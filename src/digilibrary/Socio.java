@@ -76,6 +76,6 @@ public class Socio {
     }
 	
 	public void devolverEjemplar(ejemplar e) {
-        e.cambiarEstado("Disponible");
+        e.cambiarEstado(" Libro Disponible");
     }
 }
