@@ -1,5 +1,7 @@
 package digilibrary;
 
+import java.sql.Date;
+
 public class Socio {
 	private String nombre;
     private String DNI;
@@ -65,5 +67,11 @@ public class Socio {
 		this.telefono = telefono;
 	}
     
-    
+	public void alquilarEjemplar(ejemplar e) {
+        Date hoy = new Date(System.currentTimeMillis());
+        Date entrega = Date.valueOf("2026-04-10");
+        
+        alquiler reg = new alquiler(hoy, entrega, 15);
+        reg.registrarAlquiler(e, this); // "this" envía a este socio actual
+    }
 }
