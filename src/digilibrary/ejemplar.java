@@ -25,5 +25,7 @@ public class ejemplar {
 		this.estado_devolucion = estado_devolucion;
 	}
 	
-	
+	public void cambiarEstado(String nuevoEstado) {
+		this.estado_devolucion=nuevoEstado;
+	}
 }
