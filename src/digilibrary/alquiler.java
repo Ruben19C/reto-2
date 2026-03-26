@@ -12,7 +12,6 @@ public class alquiler {
 		this.fecha_devolucion = fecha_devolucion;
 		this.max_renta = max_renta;
 	}
-
 	public Date getFecha_alquiler() {
 		return fecha_alquiler;
 	}
@@ -36,5 +35,15 @@ public class alquiler {
 	public void setMax_renta(int max_renta) {
 		this.max_renta = max_renta;
 	}
+	
+	public void registrarAlquiler(ejemplar e, Socio s) {
+        // Aquí conectamos las piezas
+        System.out.println("Alquiler registrado: El socio " + s.getNombre() + 
+                           " se lleva el ejemplar ID " + e.getId_ejemplar());
+    }
+	
+	public Date calcularFechaDevolucion() {
+        return this.fecha_devolucion;
+    }
 	
 }
