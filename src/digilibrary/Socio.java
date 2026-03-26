@@ -10,7 +10,7 @@ public class Socio {
     private String password;
     private String telefono;
     
-    public Socio(String nombre,String DNI,String email,String usuario,String password,String telefoni) {
+    public Socio(String nombre,String DNI,String email,String usuario,String password,String telefono) {
     	this.nombre=nombre;
     	this.DNI=DNI;
     	this.email=email;
