@@ -1,4 +1,4 @@
-public class Autor {
+public class Autor{
 
     private int cod_autor;
 
@@ -15,6 +15,6 @@ public class Autor {
     }
 
     public void agregarLibro(Libro l) {
-        System.out.println("Libro agregado: " + l);
+        System.out.println("LibrO agregado: " + l);
     }
-}º
+}
