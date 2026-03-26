@@ -74,4 +74,8 @@ public class Socio {
         alquiler reg = new alquiler(hoy, entrega, 15);
         reg.registrarAlquiler(e, this); // "this" envía a este socio actual
     }
+	
+	public void devolverEjemplar(ejemplar e) {
+        e.cambiarEstado("Disponible");
+    }
 }
