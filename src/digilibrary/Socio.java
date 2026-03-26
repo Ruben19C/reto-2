@@ -3,10 +3,18 @@ package digilibrary;
 public class Socio {
 	private String nombre;
     private String DNI;
-
-    public Socio(String nombre, String dni) {
-        this.nombre = nombre;
-        this.DNI = dni;
+    private String email;
+    private String usuario;
+    private String password;
+    private String telefono;
+    
+    public Socio(String nombre,String DNI,String email,String usuario,String password,String telefoni) {
+    	this.nombre=nombre;
+    	this.DNI=DNI;
+    	this.email=email;
+    	this.password=password;
+    	this.usuario=usuario;
+    	this.telefono=telefono;
     }
 
 	public String getNombre() {
@@ -24,5 +32,38 @@ public class Socio {
 	public void setDNI(String dNI) {
 		DNI = dNI;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+    
     
 }
