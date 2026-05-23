@@ -59,4 +59,9 @@ public class libros {
         this.num_ejemplares++;
         System.out.println("Se ha añadido un nuevo ejemplar físico del libro: " + this.nombre_libro);
     }
+
+	public void setgenero(genero genero) {
+		// TODO Auto-generated method stub
+		
+	}
 }
