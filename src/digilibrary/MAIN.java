@@ -1,7 +1,9 @@
 package digilibrary;
+
 import java.util.Scanner;
+
 public class MAIN {
-	public static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         GestionBiblioteca gestion = new GestionBiblioteca();
         int opcion = 0;
@@ -28,7 +30,6 @@ public class MAIN {
                         System.out.print("Ingrese el Código del Ejemplar: ");
                         int codEjemplar = scanner.nextInt();
                         
-                        // Llama a tu lógica de Base de Datos
                         boolean alquilerOk = gestion.registrarAlquiler(idSocio, codEjemplar);
                         if (alquilerOk) {
                             System.out.println(">> Operación realizada con éxito.");
@@ -38,17 +39,8 @@ public class MAIN {
                         break;
 
                     case 2:
-                        System.out.println("\n[REGISTRAR DEVOLUCIÓN]");
-                        System.out.print("Ingrese el Código del Préstamo/Alquiler: ");
-                        int codPrestamo = scanner.nextInt();
-                        
-                        // Llama a tu lógica de Base de Datos
-                        boolean devolucionOk = gestion.devolverEjemplar(codPrestamo);
-                        if (devolucionOk) {
-                            System.out.println(">> Operación realizada con éxito.");
-                        } else {
-                            System.out.println(">> Error al procesar la devolución.");
-                        }
+                        // Llama directamente al método corregido que gestiona todo por consola
+                        GestionBiblioteca.registrarDevolucion(scanner);
                         break;
 
                     case 3:

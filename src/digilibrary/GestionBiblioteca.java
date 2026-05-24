@@ -1,10 +1,14 @@
 package digilibrary;
+
 import java.sql.Connection;
 import java.sql.CallableStatement;
 import java.sql.SQLException;
+import java.util.Scanner;
+
 public class GestionBiblioteca {
-	public boolean registrarAlquiler(int idSocio, int codEjemplar) {
-        String sql = "{call sp_registrar_alquiler(?, ?)}"; // Así se llama a un procedimiento
+
+    public boolean registrarAlquiler(int idSocio, int codEjemplar) {
+        String sql = "{call sp_registrar_alquiler(?, ?)}";
         
         try (Connection con = ConexionBD.conectar();
              CallableStatement cstmt = con.prepareCall(sql)) {
@@ -22,22 +26,31 @@ public class GestionBiblioteca {
         }
     }
 
-    // ACCIÓN 2: Registrar una Devolución llamando al procedimiento de la BD
-    public boolean devolverEjemplar(int codPrestamo) {
-        String sql = "{call sp_devolver_ejemplar(?)}";
+    // ACCIÓN 2: Registrar una Devolución limpia
+    public static void registrarDevolucion(Scanner scanner) {
+        System.out.println("\n[REGISTRAR DEVOLUCIÓN]");
         
-        try (Connection con = ConexionBD.conectar();
-             CallableStatement cstmt = con.prepareCall(sql)) {
-            
-            cstmt.setInt(1, codPrestamo);
-            
-            cstmt.execute();
-            System.out.println("Devolución registrada con éxito en la BD.");
-            return true;
-            
+        System.out.print("Ingrese el ID del Socio (ej: 1): ");
+        String idUsuario = scanner.next();
+        
+        System.out.print("Ingrese el Código del Ejemplar (ej: 101): ");
+        String codEjemplar = scanner.next();
+
+        String sql = "{call sp_registrar_devolucion(?, ?)}";
+
+        // Corregido: Ahora usa ConexionBD.conectar() igual que el método de arriba
+        try (Connection conn = ConexionBD.conectar();
+             CallableStatement stmt = conn.prepareCall(sql)) {
+
+            stmt.setString(1, idUsuario);
+            stmt.setString(2, codEjemplar);
+
+            stmt.execute();
+            System.out.println(">> Operación realizada con éxito.");
+
         } catch (SQLException e) {
             System.out.println("No se pudo procesar la devolución: " + e.getMessage());
-            return false;
+            System.out.println(">> Error al procesar la devolución.");
         }
     }
 }
