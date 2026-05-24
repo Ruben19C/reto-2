@@ -38,7 +38,8 @@ public class alquiler {
 	
 	public void registrarAlquiler(ejemplar e, Socio s) {
         // Aquí conectamos las piezas
-        System.out.println("Alquiler registrado: El socio " + s.getNombre() + 
+		GestionBiblioteca gestion = new GestionBiblioteca();
+		System.out.println("Alquiler registrado: El socio " + s.getNombre() + 
                            " se lleva el ejemplar ID " + e.getId_ejemplar());
     }
 	
