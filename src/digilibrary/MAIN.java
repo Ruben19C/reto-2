@@ -16,11 +16,13 @@ public class MAIN {
             System.out.println("\n--- MENÚ DE GESTIÓN ---");
             System.out.println("1. Registrar un Alquiler (Préstamo)");
             System.out.println("2. Registrar una Devolución");
-            System.out.println("3. Salir del Sistema");
+            System.out.println("3. Agregar un Nuevo Libro (Prueba Java)");
+            System.out.println("4. Salir del Sistema");
             System.out.print("Seleccione una opción: ");
             
             try {
                 opcion = scanner.nextInt();
+                scanner.nextLine(); 
                 
                 switch (opcion) {
                     case 1:
@@ -39,11 +41,31 @@ public class MAIN {
                         break;
 
                     case 2:
-                        // Llama directamente al método corregido que gestiona todo por consola
                         GestionBiblioteca.registrarDevolucion(scanner);
                         break;
 
                     case 3:
+                        System.out.println("\n[AGREGAR NUEVO LIBRO]");
+                        System.out.print("Ingrese el Código del Libro (ej. 201): ");
+                        String nuevoCodLibro = scanner.nextLine();
+                        System.out.print("Ingrese el Título del Libro: ");
+                        String titulo = scanner.nextLine();
+                        System.out.print("Ingrese el ID del Autor (ej. A001): ");
+                        String idAutor = scanner.nextLine();
+                        System.out.print("Ingrese el ID de la Editorial (ej. ED001): ");
+                        String idEditorial = scanner.nextLine();
+                        
+                        
+                        boolean libroOk = gestion.agregarLibro(nuevoCodLibro, titulo, idAutor, idEditorial);
+                        
+                        if (libroOk) {
+                            System.out.println(">> ¡Libro agregado con éxito en la BD!");
+                        } else {
+                            System.out.println(">> Error al agregar el libro. Revisa que el ID del Autor exista.");
+                        }
+                        break;
+
+                    case 4:
                         System.out.println("\n¡Gracias por usar DigiLibrary! Cerrando sistema...");
                         break;
 
@@ -51,11 +73,11 @@ public class MAIN {
                         System.out.println("Opción no válida. Intente de nuevo.");
                 }
             } catch (Exception e) {
-                System.out.println("Error: Ingrese solo números válidos.");
-                scanner.next(); // Limpiar el error del scanner
+                System.out.println("Error: Ingrese solo datos válidos.");
+                scanner.next(); 
             }
             
-        } while (opcion != 3);
+        } while (opcion != 4);
 
         scanner.close();
     }
