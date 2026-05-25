@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class MAIN {
     public static void main(String[] args) {
+        // OPERACIÓN AUTOMÁTICA: Forzamos a Java a crear la tabla en el servidor si no existe
+        ConexionBD.crearTablaSiNoExiste();
+
         Scanner scanner = new Scanner(System.in);
         GestionBiblioteca gestion = new GestionBiblioteca();
         int opcion = 0;
@@ -22,7 +25,7 @@ public class MAIN {
             
             try {
                 opcion = scanner.nextInt();
-                scanner.nextLine(); 
+                scanner.nextLine(); // Limpiar el salto de línea
                 
                 switch (opcion) {
                     case 1:
@@ -54,7 +57,6 @@ public class MAIN {
                         String idAutor = scanner.nextLine();
                         System.out.print("Ingrese el ID de la Editorial (ej. ED001): ");
                         String idEditorial = scanner.nextLine();
-                        
                         
                         boolean libroOk = gestion.agregarLibro(nuevoCodLibro, titulo, idAutor, idEditorial);
                         
